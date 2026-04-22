@@ -2,8 +2,12 @@
 golang learning project
 
 # implementation
-a tailscale-like mesh network that should not need a proxy server with its own public IP address
+a tool between stunmesh-go / wireguard-p2p and tailscale - a central proxy server with own public IP is not needed (like stunmesh) but should try to communicate with peers over LAN first (like tailscale)
 
+for a specific use case (assume that 99% of the time peers will be on the same network e.g eduroam/nyu) then try to connect with WAN address
+
+
+nat traversal:
 - on connect, client should use STUN 5389 to get public ip and port 
 - connect to a replicated database hosted on a cloud service and store public IP and port
 - get peer public IP and port from database, and setup peer endpoint
